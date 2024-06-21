@@ -1,0 +1,46 @@
+<div class="flex flex-row w-screen ">
+    <form>
+        <div class="flex flex-col h-14 w-screen bg-white drop-shadow-lg justify-center items-center p-3 gap-3">
+            <div class="flex flex-row w-screen">
+                <div class="flex w-2/12 items-center">
+                    <button *ngIf="sideBar == false" (click)="handleClickOpenSideBar($event)" id="sidebaropen"
+                        class="ml-10">
+                        <i class="fa fa-align-justify"></i></button>
+                    <button *ngIf="sideBar == true" (click)="handleClickCloseSideBar($event)" id="sidebaropen"
+                        class="ml-10">
+                        <i class="fa fa-arrow-left"></i></button>
+                </div>
+                <div class="flex w-10/12 justify-end mr-10 p-3 items-center">
+                     <button (click)="handleLogout()" class="Btn" >
+
+                        <div class="sign"><svg viewBox="0 0 512 512">
+                                <path
+                                    d="M377.9 105.9L500.7 228.7c7.2 7.2 11.3 17.1 11.3 27.3s-4.1 20.1-11.3 27.3L377.9 406.1c-6.4 6.4-15 9.9-24 9.9c-18.7 0-33.9-15.2-33.9-33.9l0-62.1-128 0c-17.7 0-32-14.3-32-32l0-64c0-17.7 14.3-32 32-32l128 0 0-62.1c0-18.7 15.2-33.9 33.9-33.9c9 0 17.6 3.6 24 9.9zM160 96L96 96c-17.7 0-32 14.3-32 32l0 256c0 17.7 14.3 32 32 32l64 0c17.7 0 32 14.3 32 32s-14.3 32-32 32l-64 0c-53 0-96-43-96-96L0 128C0 75 43 32 96 32l64 0c17.7 0 32 14.3 32 32s-14.3 32-32 32z">
+                                </path>
+                            </svg></div>
+
+                        <div class="text" >Logout</div>
+                    </button> 
+                    <!-- <button (click)="handleLogout()">Logoyut
+                        </button> -->
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+<div class="flex flex-row w-screen mt-3">
+    <div class="flex flex-col w-screen h-screen bg-white rounded-md justify-start items-center transition-all duration-500">
+        <div class="flex flex-row w-screen transition-all duration-500">
+            <div class="flex flex-col w-2/12 h-full shadow-md gap-0 shadow-gray-300 rounded-tr-2xl transition-all sidebyside duration-500"
+                id="sidebar">
+                <div *ngFor="let data of SideBarMenuItems" class="items flex w-full hover:text-white transition-all duration-150 hover:scale-105 hover:bg-blue-500 h-10 gap-3 p-3 m-3 mt-1 mb-1 text-black items-center rounded-lg hover:shadow-md" (click)="handleClickOpenSideBar($event)">
+                    <i [class]="data.icon"></i><label for="" *ngIf="sideBar==true">{{data.label}}</label>
+                </div>
+            </div>
+            <div class="flex flex-col w-10/12  h-screen rounded-tl-xl border border-t-blue-400 border-t-4 transition-all duration-500 p-3 ml-3 mr-4 shadow-lg shadow-gray-500"
+                id="main">
+                <ng-content></ng-content>
+            </div>
+        </div>
+    </div>
+</div>

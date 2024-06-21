@@ -1,4 +1,7 @@
-import { Component } from '@angular/core';
+import { Component ,OnInit } from '@angular/core';
+import { Store } from '@ngxs/store';
+import { InitData } from './pages/home-screen/statemanagement/home.action';
+import { tap } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +10,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'statemanagementngxs';
+  constructor(private store:Store){
+
+  }
+
+
+  
 }

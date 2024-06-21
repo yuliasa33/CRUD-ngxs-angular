@@ -1,0 +1,65 @@
+<app-element-layout>
+    <div class="grid gap-3 w-full">
+        <div class="flex flex-row w-6/12 gap-3">
+            <p-button styleClass="h-10" [label]="'Back'" icon="pi pi-chevron-left" (onClick)="handleClickBack()" />
+            <div class="card w-4/12 border border-gray-500 shadow-md rounded-lg h-10">
+                <div class="flex flex-row ml-4 p-1 items-center">
+                    <label for="">ADD DATA ANGGOTA</label>
+                </div>
+            </div>
+        </div>
+        <form [formGroup]="FormInputData">
+        <div class="flex flex-row w-full">
+            <div class="flex flex-col w-6/12 gap-4 ">
+                <div class="flex flex-row w-full h-20 items-center gap-3">
+                    <div class="w-3/12  text-center">
+                        <label for="">Nama</label>
+                    </div>
+                    <div class="w-7/12">
+                        <input type="text" style="width: 100%;" pInputText formControlName="nama" />
+                    </div>
+                </div>
+                <div class="flex flex-row w-full h-20 items-center gap-3">
+                    <div class="w-3/12 text-center">
+                        <label for="">Alamat</label>
+                    </div>
+                    <div class="w-7/12">
+                        <input type="text" style="width: 100%;" pInputText formControlName="alamat" />
+                    </div>
+                </div>
+                <div class="flex flex-row w-full h-20 items-center gap-3">
+                    <div class="w-3/12  text-center">
+                        <label for="">Phone</label>
+                    </div>
+                    <div class="w-7/12">
+                        <input type="text" style="width: 100%;" pInputText formControlName="phone" />
+                    </div>
+                </div>
+            </div>
+            <div class="flex flex-col w-6/12 gap-4">
+                <div class="flex flex-row w-full h-20 items-center gap-3">
+                    <div class="w-3/12  text-center">
+                        <label for="">E-mail</label>
+                    </div>
+                    <div class="w-7/12">
+                        <input type="text" style="width: 100%;" pInputText formControlName="email" />
+                    </div>
+                </div>
+                <div class="flex flex-row w-full h-20 items-center gap-3">
+                    <div class="w-3/12 text-center">
+                        <label for="">Sex</label>
+                    </div>
+                    <div class="w-7/12">
+                        <p-dropdown styleClass="w-full" [options]="janis_kelamin" [(ngModel)]="selectedSex"  formControlName="jenis_kelamin" />
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="flex flex-row w-2/12 justify-center">
+            <div>
+                <p-button  [label]="'Save'" icon="pi pi-save" (onClick)="handlSave()"/>
+            </div>
+        </div>
+        </form>
+    </div>
+</app-element-layout>
